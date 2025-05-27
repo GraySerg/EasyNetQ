@@ -1,11 +1,11 @@
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace EasyNetQ.Producer;
 
 /// <summary>
 ///     This exception indicates that a message was nacked
 /// </summary>
-[Serializable]
+
 public class PublishNackedException : Exception
 {
     //
@@ -29,11 +29,6 @@ public class PublishNackedException : Exception
     public PublishNackedException(string? message, Exception? inner) : base(message, inner)
     {
     }
-
 #if NETSTANDARD2_0
-    /// <inheritdoc />
-    protected PublishNackedException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
-    }
 #endif
 }

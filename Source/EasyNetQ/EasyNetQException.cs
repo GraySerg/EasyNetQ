@@ -1,10 +1,10 @@
-#if NETSTANDARD2_0
+﻿#if NETSTANDARD2_0
 using System.Runtime.Serialization;
 #endif
 
 namespace EasyNetQ;
 
-[Serializable]
+
 public class EasyNetQException : Exception
 {
     /// <inheritdoc />
@@ -18,14 +18,11 @@ public class EasyNetQException : Exception
 
     /// <inheritdoc />
     public EasyNetQException(string? message, Exception? inner) : base(message, inner) { }
-
 #if NETSTANDARD2_0
-    /// <inheritdoc />
-    protected EasyNetQException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 #endif
 }
 
-[Serializable]
+
 public class EasyNetQResponderException : EasyNetQException
 {
     /// <inheritdoc />
@@ -39,9 +36,6 @@ public class EasyNetQResponderException : EasyNetQException
 
     /// <inheritdoc />
     public EasyNetQResponderException(string? message, Exception? inner) : base(message, inner) { }
-
 #if NETSTANDARD2_0
-    /// <inheritdoc />
-    protected EasyNetQResponderException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 #endif
 }

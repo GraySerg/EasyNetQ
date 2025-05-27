@@ -1,11 +1,11 @@
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace EasyNetQ.Producer;
 
 /// <summary>
 ///     This exception indicates that a message was returned
 /// </summary>
-[Serializable]
+
 public class PublishReturnedException : Exception
 {
     //
@@ -29,11 +29,6 @@ public class PublishReturnedException : Exception
     public PublishReturnedException(string? message, Exception? inner) : base(message, inner)
     {
     }
-
 #if NETSTANDARD2_0
-    /// <inheritdoc />
-    protected PublishReturnedException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
-    }
 #endif
 }
